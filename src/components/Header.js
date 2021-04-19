@@ -1,25 +1,5 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import config from '../../config.js'
-
-import Loadable from 'react-loadable'
-import LoadingProvider from './mdxComponents/loading'
-
-import Sidebar from './sidebar'
-
-const isSearchEnabled = !!(config.header.search && config.header.search.enabled)
-
-const searchIndices = []
-if (isSearchEnabled && config.header.search.indexName) {
-  searchIndices.push(
-    { name: `${config.header.search.indexName}`, title: 'Results', hitComp: 'PageHit' }
-  )
-}
-
-const LoadableComponent = Loadable({
-  loader: () => import('./search/index'), //eslint-disable-line
-  loading: LoadingProvider
-})
 
 function myFunction () {
   var x = document.getElementById('navbar')
@@ -38,9 +18,6 @@ const Header = ({ location, showSidebar }) => (
           site {
             siteMetadata {
               headerTitle
-              githubUrl
-              helpUrl
-              tweetText
               logo {
                 link
                 image
@@ -81,20 +58,7 @@ const Header = ({ location, showSidebar }) => (
                 <span className={'iconBar'}></span>
               </span>
             </div>
-            {isSearchEnabled ? (
-              <div className={'searchWrapper hiddenMobile navBarUL'}>
-                <LoadableComponent collapse={true} indices={searchIndices} />
-              </div>
-            ) : null}
             <div id="navbar" className={'topnav'} style={{ marginRight: '30px' }}>
-              <div className={'visibleMobile'}>
-                {showSidebar && <><Sidebar location={location} /> <hr/></>}
-                {isSearchEnabled ? (
-                  <div className={'searchWrapper'}>
-                    <LoadableComponent collapse={true} indices={searchIndices} />
-                  </div>
-                ) : null}
-              </div>
               <ul className={'navBarUL navBarNav navBarULRight'}>
                 {headerLinks.map((link, key) => {
                   if (link.link !== '' && link.text !== '') {
