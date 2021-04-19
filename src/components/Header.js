@@ -22,35 +22,23 @@ const Header = ({ location, showSidebar }) => (
                 link
                 image
               }
-              headerLinks {
-                link
-                text
-              }
             }
           }
         }
         `}
     render={(data) => {
-      const logoImg = require('./images/logo.svg')
-      const {
-        site: {
-          siteMetadata: {
-            logo,
-            headerTitle,
-            headerLinks
-          }
-        }
-      } = data
-      const finalLogoLink = logo.link !== '' ? logo.link : '/'
+      const logoImg = 'https://gateway.pinata.cloud/ipfs/QmNZAzmeg6651cEqyorrduKLzSgEb4Aoc71EZiaaKMabkW/polkacast-256.png'
+      const logoTitle = 'Polkacast'
+      const finalLogoLink = '/'
       return (
         <div className={'navBarWrapper'}>
           <nav className={'navBarDefault'}>
             <div className={'navBarHeader'}>
               <Link to={finalLogoLink} className={'navBarBrand'}>
-                <img className={'img-responsive displayInline'} src={(logo.image !== '') ? logo.image : logoImg} alt={'logo'} />
+                <img className={'img-responsive displayInline'} src={logoImg} alt={'logo'} />
               </Link>
               <Link to={finalLogoLink} className={'navBarBrand'}>
-                <div className={'headerTitle displayInline'} dangerouslySetInnerHTML={{ __html: headerTitle }} />
+                <div className={'headerTitle displayInline'} dangerouslySetInnerHTML={{ __html: logoTitle }} />
               </Link>
               <span onClick={myFunction} className={'navBarToggle'}>
                 <span className={'iconBar'}></span>
@@ -60,24 +48,21 @@ const Header = ({ location, showSidebar }) => (
             </div>
             <div id="navbar" className={'topnav'} style={{ marginRight: '30px' }}>
               <ul className={'navBarUL navBarNav navBarULRight'}>
-                {headerLinks.map((link, key) => {
-                  if (link.link !== '' && link.text !== '') {
-                    // internal links get a <Link/>
-                    if (link.link.charAt(0) === '/') {
-                      return (
-                        <li key={key}>
-                          <Link className="sidebarLink" to={link.link}>{link.text}</Link>
-                        </li>
-                      )
-                    }
-
-                    return (
-                      <li key={key}>
-                        <a className="sidebarLink" href={link.link} target="_blank" rel="noopener noreferrer" dangerouslySetInnerHTML={{ __html: link.text }} />
-                      </li>
-                    )
-                  }
-                })}
+                <li key="protocol">
+                  <Link className="sidebarLink" to="/">Protocol</Link>
+                </li>
+                <li key="about">
+                  <Link className="sidebarLink" to="/about">About</Link>
+                </li>
+                <li key="jobs">
+                  <Link className="sidebarLink" to="/jobs">Careers</Link>
+                </li>
+                <li key="contacts">
+                  <Link className="sidebarLink" to="/contact">Contacts</Link>
+                </li>
+                <li key="faqs">
+                  <Link className="sidebarLink" to="/faq">Faqs</Link>
+                </li>
               </ul>
             </div>
           </nav>
