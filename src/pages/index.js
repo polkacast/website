@@ -172,6 +172,30 @@ const IndexPage = () => {
         </div>
       </div>
 
+      <div className='index-row spotlight' style={{ position: 'relative', paddingBottom: '60px' }}>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-12 col-md-6'>
+              <img src="/img/homepage/flutter_TestFlight.jpeg" className="img-fluid" />
+            </div>
+            <div className='col-12 col-md-6'>
+              <h3 className='mt-0 mb-4'>Polkacast TestFlight  With Flutter dApp</h3>
+              <div className='mb-4'>
+              Participate in the TestFlight experience, <br/>
+              get Cast token rewards.
+              </div>
+              <ExternalLink to='https://github.com/polkacast/podcather-castedge-dapp'>
+                <div
+                  className='btn btn-lg btn-secondary'
+                  onClick={ () => { fireEvent('button-click', 'learn-more-top') }}
+                >
+                  learn more
+                </div>
+              </ExternalLink>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className='index-row spotlight' style={{ paddingBottom: '60px' }}>
         <div className='container' style={{ position: 'relative' }}>
           <div className='row'>
@@ -203,32 +227,33 @@ const IndexPage = () => {
             </div>
             <div className='col-12 col-md-4'>
               <BlogCard
+                title="what are the current issues with podcasting that need to be resolved?"
+                link='https://polkacastprotocol.medium.com/polkacast-what-are-the-current-issues-with-podcasting-that-need-to-be-resolved-b80eb916df81'
+                image='https://miro.medium.com/max/1996/1*TFNzjLjpnwNPjrvai-NWuA.png'
+                by='Polkacast Dao'
+                date='2021-05-08'
+                onClick={ () => { fireEvent('blog-card-click', 'smarter-data-publishing') }}
+              />
+            </div>
+            <div className='col-12 col-md-4'>
+              <BlogCard
+                title="Polkacast Roadmap & Mission"
+                link='https://polkacastprotocol.medium.com/polkacast-roadmap-mission-38170118fa0e'
+                image='https://miro.medium.com/max/5600/1*x36oQ47EYl_Yj0mPMu3AJg.png'
+                by='Polkacast Dao'
+                date='2021-05-08'
+                onClick={ () => { fireEvent('blog-card-click', 'archive-google-sheets') }}
+              />
+            </div>
+
+            <div className='col-12 col-md-4'>
+              <BlogCard
                 title="PolkaCast: Governance Model"
                 link='https://polkacastprotocol.medium.com/polkacast-governance-model-65a4ba9de471'
                 image='https://miro.medium.com/max/1400/1*XN-sKW2ejRP7Bvg8jfPYfQ.png'
                 by='Polkacast Dao'
                 date='2021-03-29'
                 onClick={ () => { fireEvent('blog-card-click', 'bots-and-trolls') }}
-              />
-            </div>
-            <div className='col-12 col-md-4'>
-              <BlogCard
-                title="Introduction to PolkaCast"
-                link='https://polkacastprotocol.medium.com/introduction-to-polkacast-d96f06fccb7a'
-                image='https://miro.medium.com/max/1400/1*hes9BhdtWfYoIzMyH9fdPQ.png'
-                by='Polkacast Dao'
-                date='2021-03-23'
-                onClick={ () => { fireEvent('blog-card-click', 'smarter-data-publishing') }}
-              />
-            </div>
-            <div className='col-12 col-md-4'>
-              <BlogCard
-                title="What is a podcast"
-                link='https://polkacastprotocol.medium.com/what-is-a-podcast-8c92ce1d1dac'
-                image='https://miro.medium.com/max/1400/1*RQzEqeztBREFS5IaTS7Zaw.jpeg'
-                by='Polkacast Dao'
-                date='2021-03-25'
-                onClick={ () => { fireEvent('blog-card-click', 'archive-google-sheets') }}
               />
             </div>
           </div>
